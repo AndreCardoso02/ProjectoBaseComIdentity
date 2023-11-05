@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using ProjectoBaseComIdentity.Models;
 
 namespace ProjectoBaseComIdentity.CustomTagHelpers
 {
@@ -30,7 +31,7 @@ namespace ProjectoBaseComIdentity.CustomTagHelpers
             {
                 foreach (var user in _userManager.Users)
                 {
-                    if (user != null && _userManager.IsInRoleAsync(user, role.Name))
+                    if (user != null && await _userManager.IsInRoleAsync(user, role.Name))
                         names.Add(user.UserName);
                 }
             }
