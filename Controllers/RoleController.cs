@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ProjectoBaseComIdentity.Models;
 
 namespace ProjectoBaseComIdentity.Controllers
 {
     public class RoleController : Controller
     {
-        private RoleManager<IdentityRole> _roleManager;
-        public RoleController(RoleManager<IdentityRole> roleManager)
+        private RoleManager<AppRole> _roleManager;
+        public RoleController(RoleManager<AppRole> roleManager)
         {
             _roleManager = roleManager;
         }

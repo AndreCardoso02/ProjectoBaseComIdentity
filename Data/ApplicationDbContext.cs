@@ -6,7 +6,7 @@ using ProjectoBaseComIdentity.Models;
 namespace ProjectoBaseComIdentity.Data;
 
 // Mundando o tipo do Identity para Guid ao invés de string
-public class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
+public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, Guid>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
