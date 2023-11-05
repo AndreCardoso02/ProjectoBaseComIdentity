@@ -12,9 +12,9 @@ namespace ProjectoBaseComIdentity.CustomTagHelpers
     public class RoleUsersTH : TagHelper
     {
         private UserManager<AppUser> _userManager;
-        private RoleManager<IdentityRole> _roleManager;
+        private RoleManager<AppRole> _roleManager;
 
-        public RoleUsersTH(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        public RoleUsersTH(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -26,7 +26,7 @@ namespace ProjectoBaseComIdentity.CustomTagHelpers
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             List<string> names = new List<string>();
-            IdentityRole role = await _roleManager.FindByIdAsync(Role);
+            AppRole role = await _roleManager.FindByIdAsync(Role);
             if (role != null)
             {
                 foreach (var user in _userManager.Users)

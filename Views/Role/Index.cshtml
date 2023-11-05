@@ -1,6 +1,7 @@
 @model IEnumerable<AppRole>
 @{
     ViewData["Title"] = "Roles";
+    int count = 1;
 }
 
 <h1 class="bg-info text-white">Todas as Roles</h1>
@@ -8,7 +9,7 @@
 
 <table class="table table-sm table-bordered table-bordered">
     <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Nome</th>
         <th>Utilizadores</th>
         <th>Actualizar</th>
@@ -17,7 +18,7 @@
     @foreach (var role in Model)
     {
         <tr>
-            <td>@role.Id</td>
+            <td>@(count++)</td>
             <td>@role.Name</td>
             <td i-role="@role.Id"></td>
             <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@role.Id">Actualizar</a></td>
