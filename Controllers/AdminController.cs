@@ -95,6 +95,24 @@ namespace ProjectoBaseComIdentity.Controllers
             return View(user);
         }
 
+        // Delete
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null) throw new ArgumentNullException(nameof(id) + "> Id inválido");
+            AppUser user = await _userManager.FindByIdAsync(id?.ToString());
+            if (user != null)
+            {
+                IdentityResult result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                    return RedirectToAction("Index");
+                else
+                    Errors(result);
+            }
+            else
+                ModelState.AddModelError("", "Utilizador não encontrado");
+            return View("Index", _userManager.Users);
+        }
         #region ErrorsRegion
         private void Errors(IdentityResult result)
         {
