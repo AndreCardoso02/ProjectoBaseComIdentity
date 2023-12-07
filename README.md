@@ -27,7 +27,7 @@ Esse projecto foi construido baseando-se nos seguintes tutoriais
 Estaremos criando uma aplicação `ASP.NET Core MVC` com uma autenticação `Individual`, e `LocalDB`
 
 ```
-dotnet new webapp --auth Individual -uld -o WebApp1
+dotnet new mvc --auth Individual -uld -o WebApp1
 ```
 
 Nesse momento o projecto será criado, e com ele as rotas 
